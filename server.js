@@ -15,12 +15,13 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .then(() => console.log('Database Connected'))
+  .then(() => console.log('DB Connected'))
   .catch(err => console.log('DB Connection Error: ', err))
 
 // middlewares
 app.use(cors())
 app.use(morgan('dev'))
+app.use(express.json())
 
 // route middleware
 readdirSync('./routes').map(r => app.use('/api', require(`./routes/${r}`)))

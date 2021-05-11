@@ -1,9 +1,8 @@
-import express from "express";
+import express from 'express'
+const router = express.Router()
+// controllers
+import { register } from '../controllers/auth'
 
-const router = express.Router();
+router.post('/register', register)
 
-router.get("/:message", (req, res) => {
-  res.status(200).send(`Here is your message:  ${req.params.message}`);
-});
-
-module.exports = router;
+module.exports = router
